@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from fastapi.responses import HTMLResponse
 from Standard_Visualization_Service import Standard_Visualization_Service
 
 app1 = FastAPI()
