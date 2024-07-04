@@ -20,7 +20,7 @@ class Standard_Visualization_Service:
             self.df[f'{col}_day'] = self.df[col].dt.day_name()
         print(self.df)
         api_key = open(r"key.txt")
-        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", api_key.readlines()[0]))
+        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", "sk-aidev-AoVsi32RWrQI2o1sJge2T3BlbkFJRjvjp4DmbEcT6weQyxaI"))
 
     def generate_visualization_code(self, prompt: str):
         messages = [
