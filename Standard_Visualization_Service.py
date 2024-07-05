@@ -85,15 +85,16 @@ You have a dataset df with columns (Note- don't use any csv we already have data
     5. Need a pie chart for techStack to count the number of leads using Plotly for dynamic visualization.
     
 Ensure each plot has titles, labels, colors, and borders to enhance clarity and aesthetics. Utilize a white template for the plots.
-Provide only code without comments or instructions.
+    Provide only code without comments or instructions.
+    display in web browser
+    
+    Save all these dynamic visualizations as a file or supported format with the following names:
+    - stacked_bar_chart_leadstatus_createdAt.html
+    - Continous_stacked_bar_chart_techstack_classmode.html
+    - Mosaic_plot_leadstatus_leadsource.html
+    - pie_chart.html 
 
-Save all these dynamic visualizations as a file or supported format with the following names:
-- cluster_column_chart.html
-- stacked_bar_chart_techstack_classmode.html
-- stacked_bar_chart_leadstatus_leadsource.html
-- horizontal_bar_chart.html
-
-Display in a web browser. Note: The dataset df is already defined and available for use.
+Display in web browser. Note: The dataset df is already defined and available for use.
 """
 
 
