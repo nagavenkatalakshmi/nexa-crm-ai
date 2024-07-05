@@ -39,22 +39,22 @@ async def root():
 
 @app1.get("/First_visualization")
 async def open_html_file_one():
-    file_name_1 = "horizontal_bar_chart.html"
+    file_name_1 = "stacked_bar_chart_leadstatus_createdAt.html"
     return HTMLResponse(content=open(file_name_1, 'r', encoding='utf-8').read(), status_code=200)
 
 @app1.get("/Second_visualization")
 async def open_html_file_two():
-    file_name_2 = "stacked_bar_chart_leadstatus_leadsource.html"
+    file_name_2 = "Continous_stacked_bar_chart_techstack_classmode.html"
     return HTMLResponse(content=open(file_name_2, 'r', encoding='utf-8').read(), status_code=200)
 
 @app1.get("/Third_visualization")
 async def open_html_file_three():
-    file_name_3 = "cluster_column_chart.html"
+    file_name_3 = "Mosaic_plot_leadstatus_leadsource.html"
     return HTMLResponse(content=open(file_name_3, 'r', encoding='utf-8').read(), status_code=200)
 
 @app1.get("/Fourth_visualization")
 async def open_html_file_four():
-    file_name_4 = "stacked_bar_chart_techstack_classmode.html"
+    file_name_4 = "pie_chart.html"
     return HTMLResponse(content=open(file_name_4, 'r', encoding='utf-8').read(), status_code=200)
 
 # @app1.get("/First_visualization")
