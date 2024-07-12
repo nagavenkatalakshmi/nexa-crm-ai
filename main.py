@@ -1,20 +1,12 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from Standard_Visualization_Service import Standard_Visualization_Service
+from Custom_Visualization import Custom_Visualization
+from pydantic import BaseModel
 
 app1 = FastAPI()
 
 svs = Standard_Visualization_Service()
-
-# @app.get("/")
-# async def root():
-#     return {"message": "Welcome to the Standard Visualization Service"}
-
-# @app.get("/data")
-# async def get_data():
-#     data = svs.df.to_json(orient='records', date_format='iso')
-#     return JSONResponse(content=data)
-
 
 prompt = """
 You have a dataset df with columns (Note- don't use any csv we already have database use that database df).
@@ -57,26 +49,7 @@ async def open_html_file_four():
     file_name_4 = "pie_chart.html"
     return HTMLResponse(content=open(file_name_4, 'r', encoding='utf-8').read(), status_code=200)
 
-# @app1.get("/First_visualization")
-# async def open_html_file_one():
-#     # svs.process_visualization_code(prompt, file_name='visualization_code.py')
-#     file_name_1 = "horizontal_bar_chart.html"
-#     return svs.open_html_file_one(file_name_1)
-# # @app1.get("/hello")
-# # async def process_visualization_code(self, prompt:str, file_name):
-# #     return svs.process_visualization_code(prompt, 'visualization_code.py')
-# @app1.get("/Second_visualization")
-# async def open_html_file_two():
-#     file_name_2 = "stacked_bar_chart_leadstatus_leadsource.html"
-#     return svs.open_html_file_two(file_name_2)
-# @app1.get("/Third_visualization")
-# async def open_html_file_three():
-#     file_name_3 = "cluster_column_chart.html"
-#     return svs.open_html_file_three(file_name_3)
-# @app1.get("/Fourth_visualization")
-# async def open_html_file_four():
-#     file_name_4 = "stacked_bar_chart_techstack_classmode.html"
-#     return svs.open_html_file_four(file_name_4)
+app1.include_router(Custom_Visualization.router)
 
 
 
