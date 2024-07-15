@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse
 from Standard_Visualization_Service import Standard_Visualization_Service
 from Custom_Visualization import Custom_Visualization
 from pydantic import BaseModel
+from Auto_Completion.Auto_Completion import Auto_Completion
 
 app1 = FastAPI()
 
@@ -48,6 +49,19 @@ async def open_html_file_three():
 async def open_html_file_four():
     file_name_4 = "pie_chart.html"
     return HTMLResponse(content=open(file_name_4, 'r', encoding='utf-8').read(), status_code=200)
+
+class Item(BaseModel):
+    prompt: str = ""
+    lead_id: int
+
+@app1.post("/prompt/")
+async def create_item(item: Item):
+    try:
+        note_promp = Auto_Completion(item)
+        print("🚀 ~ note_promp:", note_promp.whole_sentence())
+        return note_promp.whole_sentence()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 app1.include_router(Custom_Visualization.router)
 
