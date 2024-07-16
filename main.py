@@ -6,19 +6,18 @@ from pydantic import BaseModel
 from Auto_Completion.Auto_Completion import Auto_Completion
 from fastapi.middleware.cors import CORSMiddleware
 
+app1 = FastAPI()
 origins = [
     "http://localhost:3000","https://api.dev.ai.crm.nexadesign.ai","https://api.dev.crm.nexadesign.ai", "https://dev.crm.nexadesign.ai/", "https://ai.crm.nexadesign.ai"  # React dev server
 ]
 
-app.add_middleware(
+app1.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-app1 = FastAPI()
 
 svs = Standard_Visualization_Service()
 
