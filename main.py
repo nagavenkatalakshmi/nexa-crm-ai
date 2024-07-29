@@ -5,8 +5,20 @@ from Custom_Visualization import Custom_Visualization
 from pydantic import BaseModel
 from Auto_Completion.Auto_Completion import Auto_Completion
 from Auto_Completion.Content_Get import Content_Get
+from fastapi.middleware.cors import CORSMiddleware
 
 app1 = FastAPI()
+origins = [
+    "http://localhost:3000","https://api.dev.ai.crm.nexadesign.ai","https://api.dev.crm.nexadesign.ai", "https://dev.crm.nexadesign.ai", "https://ai.crm.nexadesign.ai"
+]
+
+app1.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 svs = Standard_Visualization_Service()
 
